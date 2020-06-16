@@ -13,7 +13,7 @@ namespace CronstruçaoVenda
     public partial class FormCadUsuario : Form
     {
         FormLstUsuario UsuarioLstForm;
-
+        bool a = false;
         public FormCadUsuario()
         {
             InitializeComponent();
@@ -24,6 +24,7 @@ namespace CronstruçaoVenda
             InitializeComponent();
 
             UsuarioLstForm = UsuarioForm;
+            a = true;
         }
 
 
@@ -126,8 +127,11 @@ namespace CronstruçaoVenda
 
                             lblResultado.Text = "Cadastrado!!";
                             this.Close();
-
-                            UsuarioLstForm.AtualizarLista();
+                            if (this.a == true)
+                            {
+                                UsuarioLstForm.AtualizarLista();
+                            }
+                            
 
 
                         }, TaskScheduler.FromCurrentSynchronizationContext());
@@ -152,5 +156,6 @@ namespace CronstruçaoVenda
                 lblResultado.Text = "Campo nulo, Digite Novamente";
             }
         }
+
     }
 }
